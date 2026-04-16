@@ -1,0 +1,30 @@
+Project Proposal
+
+Project Title:
+Caffeine Consumption Effects Simulation
+
+Project Overview:
+This project is a time-based simulation that models how caffeine affects people over time. The goal is to show how different conditions like alertness, heart rate, and fatigue change after someone consumes caffeine. Each time period will represent one hour, and the simulation will run for at least 25 time periods to track these changes.
+
+Implementation Plan:
+The program will use an std::map to store data for multiple people. Each person’s name will be used as the key. The value will be a 3-element std::array of std::lists, where each list represents a different type of data:
+1. alertness
+2. heart rate
+3. fatigue
+
+The program will read the starting data from an external file. The file will contain at least 100 lines of data, with each line including a person's name and their initial values. After reading the file, the program will display the initial state of all people in a simple format.
+
+Simulation Details:
+The simulation will run for 25 time periods. In each time step, the program will update each person’s condition based on basic rules. For example, alertness might increase during the first few time periods, heart rate may go up slightly, and fatigue may go down. After some time, the effects may wear off, causing alertness to decrease and fatigue to increase again.
+
+What the Program Will Show:
+The program will display:
+- the initial state of the data
+- how each person’s condition changes over time
+- the final state after all time periods are completed
+
+Why I Chose This Topic:
+I chose caffeine as the topic because it is something most people are familiar with. It also naturally fits a time-based simulation since its effects change over time, which makes it easier to model in a simple way.
+
+Time Period Choice:
+Each time period represents one hour. I chose this because caffeine effects are usually discussed in terms of hours, like feeling more awake shortly after drinking coffee and then feeling tired later.
