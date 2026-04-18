@@ -14,16 +14,12 @@ void simulateCaffeineEffects(map<string, array<list<int>, 3>>& people, int timeP
         // Iterate through each person
         for (auto& person : people) {
             // Get the most recent values
-            // Iterate through each person in the map
-                // Get the most recent alertness, heart rate, and fatigue values
                 int alertness = person.second[0].back();
                 int heartRate = person.second[1].back();
                 int fatigue = person.second[2].back();
-            // Update the values based on simple caffeine effect rules
+
             // alertness may go up during early periods
-            // heart rate may increase slightly
-            // fatigue may go down at first
-            // later, alertness may drop and fatigue may rise again
+            
             if (t <= 5) {
                 alertness += 2;
                 heartRate += 1;
@@ -69,8 +65,6 @@ int main() {
         return 1;
     }
     // Read data from file and populate map
-        // For each line, extract the person's name, alertness, heart rate, and fatigue
-        // Insert each value into the correct list in the array for that person
     string name;
     int alertness, heartRate, fatigue;
 
@@ -81,14 +75,12 @@ int main() {
     }
     // Close the file
     inputFile.close();
-    // Display the initial state of the people in the simulation
     for (const auto& person : people) {
         cout << person.first;
         cout << "Alertness: " << person.second[0].back();
         cout << "Heart Rate: " << person.second[1].back();
         cout << "Fatigue: " << person.second[2].back();
     }
-    // Begin a time-based simulation
         // For 25 time periods
             simulateCaffeineEffects(people, 25);
 
