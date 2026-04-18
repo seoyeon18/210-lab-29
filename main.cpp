@@ -18,7 +18,7 @@ void simulateCaffeineEffects(map<string, array<list<int>, 3>>& people, int timeP
             int heartRate = person.second[1].back();
             int fatigue = person.second[2].back();
 
-            
+
 // Define main function
     // Initialize a map to store person information
     // Each key will be a person's name
@@ -42,6 +42,9 @@ void simulateCaffeineEffects(map<string, array<list<int>, 3>>& people, int timeP
         // For 25 time periods
             // Iterate through each person in the map
                 // Get the most recent alertness, heart rate, and fatigue values
+                int alertness = person.second[0].back();
+                int heartRate = person.second[1].back();
+                int fatigue = person.second[2].back();
                 // Update the values based on simple caffeine effect rules
                     // alertness may go up during early periods
                     // heart rate may increase slightly
