@@ -67,7 +67,15 @@ void simulateCaffeineEffects(map<string, array<list<int>, 3>>& people, int timeP
             if (heartRate < 0) heartRate = 0;
             if (fatigue < 0) fatigue = 0;
                 // Add the updated values to the correct lists
-
+            person.second[0].push_back(alertness);
+            person.second[1].push_back(heartRate);
+            person.second[2].push_back(fatigue);
             // Print the updated state for that time period
-
+            cout << "\nTime Period " << t << endl;
+            for (const auto& person : people) {
+            cout << person.first << " | ";
+            cout << "Alertness: " << person.second[0].back() << ", ";
+            cout << "Heart Rate: " << person.second[1].back() << ", ";
+            cout << "Fatigue: " << person.second[2].back() << endl;
+        }
 // End of main function
