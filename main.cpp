@@ -20,16 +20,21 @@ void simulateCaffeineEffects(map<string, array<list<int>, 3>>& people, int timeP
 
 
 // Define main function
+int main() {
     // Initialize a map to store person information
     // Each key will be a person's name
     // Each value will be an array of 3 lists:
         // list 0 = alertness values
         // list 1 = heart rate values
         // list 2 = fatigue values
-
+        map<string, array<list<int>, 3>> people;
     // Open an external file to read the starting data
+        ifstream inputFile("data.txt");
         // If file does not open, print an error message and exit
-
+        if (!inputFile) {
+        cout << "Error: Could not open data file." << endl;
+        return 1;
+    }
     // Read data from file and populate map
         // For each line, extract the person's name, alertness, heart rate, and fatigue
         // Insert each value into the correct list in the array for that person
