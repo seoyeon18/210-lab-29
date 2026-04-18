@@ -14,50 +14,6 @@ void simulateCaffeineEffects(map<string, array<list<int>, 3>>& people, int timeP
         // Iterate through each person
         for (auto& person : people) {
             // Get the most recent values
-            int alertness = person.second[0].back();
-            int heartRate = person.second[1].back();
-            int fatigue = person.second[2].back();
-
-
-// Define main function
-int main() {
-    // Initialize a map to store person information
-    // Each key will be a person's name
-    // Each value will be an array of 3 lists:
-        // list 0 = alertness values
-        // list 1 = heart rate values
-        // list 2 = fatigue values
-        map<string, array<list<int>, 3>> people;
-    // Open an external file to read the starting data
-        ifstream inputFile("data.txt");
-        // If file does not open, print an error message and exit
-        if (!inputFile) {
-        cout << "Error: Could not open data file." << endl;
-        return 1;
-    }
-    // Read data from file and populate map
-        // For each line, extract the person's name, alertness, heart rate, and fatigue
-        // Insert each value into the correct list in the array for that person
-        string name;
-    int alertness, heartRate, fatigue;
-
-    while (inputFile >> name >> alertness >> heartRate >> fatigue) {
-        people[name][0].push_back(alertness);
-        people[name][1].push_back(heartRate);
-        people[name][2].push_back(fatigue);
-    }
-    // Close the file
-    inputFile.close();
-    // Display the initial state of the people in the simulation
-    for (const auto& person : people) {
-        cout << person.first;
-        cout << "Alertness: " << person.second[0].back();
-        cout << "Heart Rate: " << person.second[1].back();
-        cout << "Fatigue: " << person.second[2].back();
-    }
-    // Begin a time-based simulation
-        // For 25 time periods
-            simulateCaffeineEffects(people, 25);
             // Iterate through each person in the map
                 // Get the most recent alertness, heart rate, and fatigue values
                 int alertness = person.second[0].back();
@@ -96,6 +52,46 @@ int main() {
             cout << "Heart Rate: " << person.second[1].back() << ", ";
             cout << "Fatigue: " << person.second[2].back() << endl;
         }
-// End of main function
-    return 0;
+        }
+    }
 }
+
+// Define main function
+int main() {
+    // Initialize a map to store person information
+    // Each key will be a person's name
+        map<string, array<list<int>, 3>> people;
+    // Open an external file to read the starting data
+        ifstream inputFile("data.txt");
+        // If file does not open, print an error message and exit
+        if (!inputFile) {
+        cout << "Error: Could not open data file." << endl;
+        return 1;
+    }
+    // Read data from file and populate map
+        // For each line, extract the person's name, alertness, heart rate, and fatigue
+        // Insert each value into the correct list in the array for that person
+    string name;
+    int alertness, heartRate, fatigue;
+
+    while (inputFile >> name >> alertness >> heartRate >> fatigue) {
+        people[name][0].push_back(alertness);
+        people[name][1].push_back(heartRate);
+        people[name][2].push_back(fatigue);
+    }
+    // Close the file
+    inputFile.close();
+    // Display the initial state of the people in the simulation
+    for (const auto& person : people) {
+        cout << person.first;
+        cout << "Alertness: " << person.second[0].back();
+        cout << "Heart Rate: " << person.second[1].back();
+        cout << "Fatigue: " << person.second[2].back();
+    }
+    // Begin a time-based simulation
+        // For 25 time periods
+            simulateCaffeineEffects(people, 25);
+
+            return 0;
+        }
+    
