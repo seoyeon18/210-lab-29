@@ -57,6 +57,7 @@ int main() {
     }
     // Begin a time-based simulation
         // For 25 time periods
+            simulateCaffeineEffects(people, 25);
             // Iterate through each person in the map
                 // Get the most recent alertness, heart rate, and fatigue values
                 int alertness = person.second[0].back();
@@ -96,3 +97,5 @@ int main() {
             cout << "Fatigue: " << person.second[2].back() << endl;
         }
 // End of main function
+    return 0;
+}
