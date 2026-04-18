@@ -45,11 +45,27 @@ void simulateCaffeineEffects(map<string, array<list<int>, 3>>& people, int timeP
                 int alertness = person.second[0].back();
                 int heartRate = person.second[1].back();
                 int fatigue = person.second[2].back();
-                // Update the values based on simple caffeine effect rules
-                    // alertness may go up during early periods
-                    // heart rate may increase slightly
-                    // fatigue may go down at first
-                    // later, alertness may drop and fatigue may rise again
+            // Update the values based on simple caffeine effect rules
+            // alertness may go up during early periods
+            // heart rate may increase slightly
+            // fatigue may go down at first
+            // later, alertness may drop and fatigue may rise again
+            if (t <= 5) {
+                alertness += 2;
+                heartRate += 1;
+                fatigue -= 1;
+            } else if (t <= 10) {
+                alertness += 1;
+                fatigue -= 1;
+            } else {
+                alertness -= 1;
+                heartRate -= 1;
+                fatigue += 2 ;
+            }
+
+            if (alertness < 0) alertness = 0;
+            if (heartRate < 0) heartRate = 0;
+            if (fatigue < 0) fatigue = 0;
                 // Add the updated values to the correct lists
 
             // Print the updated state for that time period
